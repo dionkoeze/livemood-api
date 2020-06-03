@@ -20,7 +20,7 @@ app.post('/auth', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + 'public/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.use(express.static('public'));
@@ -29,5 +29,6 @@ io.on('connection', (socket) => {
   socket.emit('hello', 'hi there!');
   socket.on('msg', (data) => {
     console.log(data);
+    console.log(socket.request.headers.cookie);
   });
 });
