@@ -1,0 +1,28 @@
+{
+  "name": "livemood-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dionkoeze/livemood-api.git"
+  },
+  "author": "Dion Koeze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dionkoeze/livemood-api/issues"
+  },
+  "homepage": "https://github.com/dionkoeze/livemood-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "socket.io": "^2.3.0"
+  }
+}
