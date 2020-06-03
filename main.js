@@ -8,8 +8,8 @@ server.listen(process.env.PORT || 3000);
 
 app.post('/auth', (req, res) => {
   const token = jwt.sign(
-    {
-    id: 1234567890,
+  {
+    id: Math.random(),
   }, 
   process.env.SECRET || 'superSecret', 
   {
