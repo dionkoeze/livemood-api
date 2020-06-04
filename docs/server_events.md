@@ -7,7 +7,6 @@ Vote on a specific label in a room. Vote is only accepted when socket is in the 
 {
   "id": "roomUuid",
   "label": "moodLabel",
-  "token": "jwt",
 }
 ```
 
@@ -18,24 +17,6 @@ Vote on a label in the current poll. Vote is only accepted when socket is in the
   "id": "roomUuid",
   "poll": "pollName",
   "label": "optionLabel",
-  "token": "jwt",
-}
-```
-
-#### join
-Join a room. Effect is that votes and updates are sent to this client. Joining is idempotent. Token required for private rooms.
-```json
-{
-  "id": "roomUuid",
-  "token": "jwt",
-}
-```
-
-#### leave
-Leave a room. Effect is that votes and updates are not sent any more to this client. Leaving is idempotent.
-```json
-{
-  "id": "roomUuid",
 }
 ```
 
@@ -45,11 +26,10 @@ Clear all votes and unpinned labels.
 ```json
 {
   "id": "roomUuid",
-  "token": "jwt",
 }
 ```
 
-#### removeLabel
+#### clearLabel
 Clear votes of specific label, removes label if unpinned.
 ```json
 {
