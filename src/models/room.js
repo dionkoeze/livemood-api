@@ -23,14 +23,6 @@ const RoomSchema = new Schema({
         type: Boolean,
         default: false,
     },
-    owners: {
-        type: [String],
-        required: [true, 'room needs owners'],
-        validate: {
-            validator: (v) => v.length > 0,
-            message: 'owners array cannot be empty',
-        },
-    },
     pinned: {
         type: [String],
         default: [
