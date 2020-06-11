@@ -10,7 +10,7 @@ A token contains user permissions only.
   "mods": [
     "uuidC",
   ],
-  "private": [
+  "memberOf": [
     "uuidD",
     "uuidE",
   ],
