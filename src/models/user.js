@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { is_email } from '../util/validation';
 
+
 const UserSchema = new Schema({
     email: {
         type: String,

@@ -19,15 +19,15 @@ Success reponse body (sets token as cookie):
 {
   "status": "authorized-account",
   "owns": [
-    "uuidA",
-    "uuidB",
+    "idA",
+    "idB",
   ],
   "mods": [
-    "uuidC",
+    "idC",
   ],
   "private": [
-    "uuidD",
-    "uuidE",
+    "idD",
+    "idE",
   ],
 }
 ```
@@ -85,15 +85,15 @@ Response body:
 {
   "email": "ex@amp.le",
   "owns": [
-    "uuidA",
-    "uuidB",
+    "idA",
+    "idB",
   ],
   "mods": [
-    "uuidC",
+    "idC",
   ],
   "private": [
-    "uuidD",
-    "uuidE",
+    "idD",
+    "idE",
   ],
 }
 ```
@@ -134,7 +134,7 @@ Failure response body with status 400:
 }
 ```
 
-#### GET /room/\<uuid>
+#### GET /room/\<id>
 Get room details. Route is guarded, status 401 if token is invalid.
 
 Request body:
@@ -145,7 +145,7 @@ Request body:
 Response body:
 ```json
 {
-  "id": "uuid",
+  "id": "id",
   "room": "roomName",
   "private": true,
   "owners": [
@@ -168,7 +168,7 @@ Response body:
 }
 ```
 
-#### PUT /room/\<uuid>
+#### PUT /room/\<id>
 Modify a room.
 
 Request body can be any subset of these fields:
@@ -184,12 +184,12 @@ Request body can be any subset of these fields:
 }
 ```
 
-#### DELETE /room/\<uuid>
+#### DELETE /room/\<id>
 Delete a room. Only owners can delete a room.
 
 Request and response empty.
 
-#### POST /room/\<uuid>/join
+#### POST /room/\<id>/join
 Join a (possibly private) room. Existing token gets appended with private room access.
 
 Request body (public room):
@@ -209,12 +209,12 @@ Response body (sets new token as cookie):
 {}
 ```
 
-#### POST /room/\<uuid>/leave
+#### POST /room/\<id>/leave
 Leave a room.
 
 Request and response bodies are empty. Sets new token as cookie.
 
-#### POST /room/\<uuid>/owner
+#### POST /room/\<id>/owner
 Add owner to room. Two possibilities
 
 Request body (from owner client, to add by email address):
@@ -233,7 +233,7 @@ Request body (from other client, with one-time code):
 }
 ```
 
-#### GET /room/\<uuid>/owner
+#### GET /room/\<id>/owner
 Route can only be accessed by current owner to obtain a one-time code (limited validity) to grant ownership.
 
 Request body:
@@ -248,13 +248,13 @@ Response body:
 }
 ```
 
-#### DELETE /room/\<uuid>/owner
+#### DELETE /room/\<id>/owner
 Remove ownership. Only owner has access to this route.
 
-#### POST /room/\<uuid>/poll
+#### POST /room/\<id>/poll
 
-#### GET /room/\<uuid>/poll
+#### GET /room/\<id>/poll
 
-#### DELETE /room/\<uuid>/poll
+#### DELETE /room/\<id>/poll
 
-#### PUT /room/\<uuid>/poll
+#### PUT /room/\<id>/poll

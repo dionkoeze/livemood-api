@@ -3,6 +3,7 @@ import { register, get_account_token, get_anonymous_token } from '../controllers
 
 const router = Router();
 
+
 router.post('/register', async (req, res) => {
     const { email, password } = req.body;
 
@@ -10,6 +11,7 @@ router.post('/register', async (req, res) => {
     
     res.status(201).end();
 });
+
 
 router.post('/auth', async (req, res) => {
     const { type } = req.body;
@@ -36,9 +38,10 @@ router.post('/auth', async (req, res) => {
             });
         }
 
-        res.cookie("token", token, { httpOnly: true, secure: true, maxAge }).json({
-            status: "authorized-account",
-        });
+        res.cookie("token", token, { httpOnly: true, secure: true, maxAge })
+            .json({
+                status: "authorized-account",
+            });
     } else {
         res.status(401).json({
             status: "not-authorized",
@@ -46,5 +49,6 @@ router.post('/auth', async (req, res) => {
         });
     }
 });
+
 
 export default router;

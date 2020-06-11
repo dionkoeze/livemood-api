@@ -65,3 +65,8 @@ export async function get_account_token(email, password) {
 
     return jwt.sign(payload, process.env.SECRET, {expiresIn: maxAge});    
 }
+
+
+export function verify_token(token) {
+    return jwt.verify(token, process.env.SECRET);
+}

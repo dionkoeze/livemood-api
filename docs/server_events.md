@@ -5,7 +5,16 @@ These events are emitted by the client and caught by the server.
 Vote on a specific label in a room. Vote is only accepted when socket is in the room. Token required for private rooms.
 ```json
 {
-  "id": "roomUuid",
+  "id": "roomId",
+  "label": "moodLabel",
+}
+```
+
+#### retractVoteLabel
+Clear your vote of a specific label.
+```json
+{
+  "id": "roomId",
   "label": "moodLabel",
 }
 ```
@@ -14,7 +23,17 @@ Vote on a specific label in a room. Vote is only accepted when socket is in the 
 Vote on a label in the current poll. Vote is only accepted when socket is in the room. Token required for private rooms.
 ```json
 {
-  "id": "roomUuid",
+  "id": "roomId",
+  "poll": "pollName",
+  "label": "optionLabel",
+}
+```
+
+#### restractVotePoll
+Clear your vote of a label in a poll
+```json
+{
+  "id": "roomId",
   "poll": "pollName",
   "label": "optionLabel",
 }
@@ -25,7 +44,7 @@ Clear all votes and unpinned labels.
 
 ```json
 {
-  "id": "roomUuid",
+  "id": "roomId",
 }
 ```
 
@@ -33,7 +52,7 @@ Clear all votes and unpinned labels.
 Clear votes of specific label, removes label if unpinned.
 ```json
 {
-  "id": "roomUuid",
+  "id": "roomId",
   "label": "moodLabel",
   "token": "jwt",
 }
@@ -43,7 +62,7 @@ Clear votes of specific label, removes label if unpinned.
 Set pinned status of label (use to pin or unpin). 
 ```json
 {
-  "id": "roomUuid",
+  "id": "roomId",
   "label": "moodLabel",
   "pinned": true
 }

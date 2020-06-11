@@ -2,17 +2,17 @@
 A token contains user permissions only.
 ```json
 {
-  "userid": "uuid",
+  "userid": "id",
   "owns": [
-    "uuidA",
-    "uuidB",
+    "idA",
+    "idB",
   ],
   "mods": [
-    "uuidC",
+    "idC",
   ],
   "memberOf": [
-    "uuidD",
-    "uuidE",
+    "idD",
+    "idE",
   ],
 }
 ```
