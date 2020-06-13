@@ -1,16 +1,8 @@
 import { Schema, model } from 'mongoose';
 import PollSchema from './poll';
-import { is_valid_uuid, is_valid_name } from '../util/validation';
+import { is_valid_name, unique_array } from '../util/validation';
 
 const RoomSchema = new Schema({
-    id: {
-        type: String,
-        required: [true, 'room id required'],
-        validate: {
-            validator: (v) => is_valid_uuid(v),
-            message: (props) => `${props.value} is not a valid room id`,
-        },
-    },
     name: {
         type: String,
         required: [true, 'room name required'],

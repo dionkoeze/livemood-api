@@ -104,7 +104,7 @@ Create a new room. Route is guarded, status 401 if token is invalid.
 Request body:
 ```json
 {
-  "room": "roomName",
+  "name": "roomName",
   "private": false,
 }
 ```
@@ -113,9 +113,15 @@ Success response body with status 201 (sets new token as cookie):
 ```json
 {
   "id": "roomId",
-  "room": "roomName",
+  "name": "roomName",
   "private": false,
   "owners": [
+    "ex@amp.le",
+  ],
+  "members": [
+    "ex@amp.le",
+  ],
+  "moderators": [
     "ex@amp.le",
   ],
   "pinned": [
@@ -146,9 +152,15 @@ Response body:
 ```json
 {
   "id": "id",
-  "room": "roomName",
+  "name": "roomName",
   "private": true,
   "owners": [
+    "ex@amp.le",
+  ],
+  "members": [
+    "ex@amp.le",
+  ],
+  "moderators": [
     "ex@amp.le",
   ],
   "pinned": [
@@ -174,7 +186,7 @@ Modify a room.
 Request body can be any subset of these fields:
 ```json
 {
-  "room": "roomName",
+  "name": "roomName",
   "private": true,
   "pinned": [
     "Need... coffee...",
@@ -188,6 +200,19 @@ Request body can be any subset of these fields:
 Delete a room. Only owners can delete a room.
 
 Request and response empty.
+
+
+#### GET /room/\<id>/join
+Only accessible by room owners and moderators. Returns a one-time use code for joining a private room.
+
+Request body empty.
+
+Response body:
+```json
+{
+  "code": "axu40d",
+}
+```
 
 #### POST /room/\<id>/join
 Join a (possibly private) room. Existing token gets appended with private room access.

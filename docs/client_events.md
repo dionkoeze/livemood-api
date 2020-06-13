@@ -1,6 +1,14 @@
 ## client direction events
 These events are emitted by the server and caught by the client.
 
+#### rooms
+All rooms visible to the user.
+```json
+{
+  
+}
+```
+
 #### roomVotes
 Contains current total and personal votes in a room.
 ```json

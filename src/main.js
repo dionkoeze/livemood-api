@@ -7,11 +7,17 @@ import cookieParser from 'cookie-parser';
 
 import authRoutes from './routes/auth';
 import userRoutes from './routes/user';
-import check_token from './routes/guard';
+import roomRoutes from './routes/room';
+import { check_token } from './routes/guard';
 
 config();
 
-connect(`mongodb+srv://app:${process.env.MONGOPW}@livemood.a56qt.azure.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
+connect(`mongodb+srv://app:${process.env.MONGOPW}@livemood.a56qt.azure.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+});
 
 const app = express();
 
@@ -19,8 +25,12 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use(authRoutes);
+
 app.use('/user', check_token);
 app.use('/user', userRoutes);
+
+app.use('/room', check_token);
+app.use('/room', roomRoutes);
 
 const server = Server(app);
 
